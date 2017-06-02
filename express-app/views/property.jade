@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  br
+  table(class='table table-bordered')
+    tr
+      td
+        b ID
+      td #{property.titleId}
+    tr
+      td 
+        b Owner
+      td #{property.ownerName}
+    tr
+      td 
+        b Description
+      td #{property.information}
+    tr
+      td 
+        b For Sale
+      td #{property.forSale}
+  br
+  if forSale
+    a(href="/properties/unsell/#{property.titleId}" class="btn btn-danger" style="margin: 2px;") Remove from sale
+  else
+    a(href="/properties/sell/#{property.titleId}" class="btn btn-success" style="margin: 2px;") Mark as for sale
+  a(href="/properties" class="btn btn-default" style="margin: 2px;") Back to list
+  

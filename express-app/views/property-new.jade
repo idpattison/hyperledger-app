@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  p Enter details of the new property
+  br
+  form(action="/properties/create" method="get" class="form-horizontal")
+    .form-group
+      label(for="owner" class="col-sm-2 control-label") Owner
+      .col-sm-6
+        select(class="form-control" name="owner")
+          each owner in owners
+            option #{owner.personId}
+        input(type="hidden" id="ownerIndex" name="ownerIndex")
+    .form-group
+      label(for="information" class="col-sm-2 control-label") Description
+      .col-sm-6
+        input(type="text" class="form-control" name="information")
+    div(class="col-sm-6 col-sm-offset-2")
+      button(type="submit" class="btn btn-primary") Add property

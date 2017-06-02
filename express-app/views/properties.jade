@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  br
+  table(class='table table-striped')
+    tr
+      th ID
+      th Owner
+      th Description
+      th For Sale
+      th 
+    each property, index in properties
+      tr
+        td #{properties[index].titleId}
+        td #{properties[index].ownerName}
+        td #{properties[index].information}
+        td #{properties[index].forSale}
+        td
+          a(href="/properties/#{properties[index].titleId}" class="btn btn-default" style="margin: 2px;") View
+  br
+  a(href="/properties/new" class="btn btn-primary") Add new property
+  
