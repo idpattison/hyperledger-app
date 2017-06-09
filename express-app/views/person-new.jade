@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Enter details of the new person
+  br
+  form(action="/people/create" method="get" class="form-horizontal")
+    .form-group
+      label(for="firstName" class="col-sm-2 control-label") First Name
+      .col-sm-6
+        input(type="text" class="form-control" name="firstName")
+    .form-group
+      label(for="lastName" class="col-sm-2 control-label") Last Name
+      .col-sm-6
+        input(type="text" class="form-control" name="lastName")
+    div(class="col-sm-6 col-sm-offset-2")
+      button(type="submit" class="btn btn-primary") Add person

@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  br
+  table(class='table table-striped')
+    tr
+      th ID
+      th First Name
+      th Last Name
+      th 
+    each person, index in people
+      tr
+        td #{people[index].personId}
+        td #{people[index].firstName}
+        td #{people[index].lastName}
+        td
+          a(href="/people/#{people[index].personId}" class="btn btn-default" style="margin: 2px;") View
+  br
+  a(href="/people/new" class="btn btn-primary") Add new person
+  a(href="/" class="btn btn-default" style="margin: 2px;") Back to index
+  

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  br
+  table(class='table table-bordered')
+    tr
+      td
+        b ID
+      td #{person.personId}
+    tr
+      td 
+        b First Name
+      td #{person.firstName}
+    tr
+      td 
+        b Last Name
+      td #{person.lastName}
+  br
+  a(href="/people" class="btn btn-default" style="margin: 2px;") Back to list
+  
