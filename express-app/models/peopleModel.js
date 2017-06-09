@@ -2,7 +2,9 @@
 
 const unirest = require('unirest');
 
-// return all properties as an array
+// this module has the model functions relating to 'people'
+
+// return all people as an array
 exports.getAll = function (apiPath, callback) {
   unirest.get(apiPath + '/api/Person').end(function (response) {
     let peopleList = response.body;

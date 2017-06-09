@@ -7,9 +7,6 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-const index = require('./routes/index');
-const users = require('./routes/users');
-
 const app = express();
 
 // view engine setup
@@ -17,7 +14,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // set up API location - on Bluemix this is set in the environment variables
-app.set('api path', process.env.API_PATH || 'http://192.168.1.102:3000');
+app.set('api path', process.env.API_PATH || 'http://localhost:3000');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -27,8 +24,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
+// this section defines how requests are routed based on their URL
+// e.g. a URL beginning with /users is routed to the module at ./routes/users.js
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
 app.use('/properties', require('./routes/properties'));
 
 // catch 404 and forward to error handler

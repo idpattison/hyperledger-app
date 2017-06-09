@@ -5,7 +5,7 @@ const router = express.Router();
 const propertyModel = require('../models/propertiesModel');
 const peopleModel = require('../models/peopleModel');
 
-/* GET properties listing. */
+// handle the URL /properties
 router.get('/', function(req, res, next) {
 
   let propertyList;
@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET property detail. */
+// handle the URL /properties/new
 router.get('/new', function(req, res, next) {
 
   // get the list of people to populate the drop-down
@@ -30,14 +30,14 @@ router.get('/new', function(req, res, next) {
   });
 });
 
-/* GET property detail. */
+// handle the URL /properties/create
 router.get('/create', function(req, res, next) {
   propertyModel.create(req.query.owner, req.query.information, req.app.get('api path'), function () {
     res.redirect('/properties');
   });
 });
 
-/* GET property detail. */
+// handle the URL /properties/1234
 router.get('/:propertyId', function(req, res, next) {
 
   let property;
@@ -51,7 +51,7 @@ router.get('/:propertyId', function(req, res, next) {
   });
 });
 
-/* GET property detail. */
+// handle the URL /properties/sell/1234
 router.get('/sell/:propertyId', function(req, res, next) {
 
   let property;
@@ -64,7 +64,7 @@ router.get('/sell/:propertyId', function(req, res, next) {
   });
 });
 
-/* GET property detail. */
+// handle the URL /properties/unsell/1234
 router.get('/unsell/:propertyId', function(req, res, next) {
 
   let property;

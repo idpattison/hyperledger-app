@@ -3,6 +3,8 @@
 const unirest = require('unirest');
 const peopleModel = require('../models/peopleModel');
 
+// this module has the model functions relating to 'properties'
+
 // return all properties as an array
 exports.getAll = function (apiPath, callback) {
   unirest.get(apiPath + '/api/LandTitle').end(function (response) {
@@ -10,7 +12,8 @@ exports.getAll = function (apiPath, callback) {
 
     // do any enrichment here
 
-    // get the list of people and add the owner names to the property list
+    // get the list of people by calling the function in the 'people' model
+    // add the owner names to the property list
     let peopleList;
     peopleModel.getAll(apiPath, function (peopleList) {
 
@@ -27,13 +30,14 @@ exports.getAll = function (apiPath, callback) {
   });
 }
 
-// return the identified property
+// return the property identified by 'id'
 exports.getById = function (id, apiPath, callback) {
   unirest.get(apiPath + '/api/LandTitle/' + id).end(function (response) {
     let property = response.body;
     // do any enrichment here
 
-    // get the list of people and add the owner names to the property list
+    // get the list of people by calling the function in the 'people' model
+    // add the owner name to the property
     let peopleList;
     peopleModel.getAll(apiPath, function (peopleList) {
 
@@ -66,7 +70,7 @@ exports.create = function (owner, information, apiPath, callback) {
 
 }
 
-// sell the identified property
+// mark the identified property as 'for sale'
 exports.sell = function (id, owner, apiPath, callback) {
   const trx = {
     "$class": "net.biz.digitalPropertyNetwork.RegisterPropertyForSale",
@@ -84,7 +88,7 @@ exports.sell = function (id, owner, apiPath, callback) {
 
 }
 
-// un-sell the identified property
+// mark the identified property as not 'for sale'
 exports.unsell = function (id, property, apiPath, callback) {
   const trx = {
     "$class": "net.biz.digitalPropertyNetwork.LandTitle",
