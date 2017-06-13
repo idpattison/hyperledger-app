@@ -1,8 +1,8 @@
 {
     "type": "hlf",
-    "membershipServicesURL": "grpcs://6e4f2a6be6b8479ba4635d421152c41c-ca.us.blockchain.ibm.com:30001",
-    "peerURL": "grpcs://6e4f2a6be6b8479ba4635d421152c41c-vp1.us.blockchain.ibm.com:30001",
-    "eventHubURL": "grpcs://6e4f2a6be6b8479ba4635d421152c41c-vp1.us.blockchain.ibm.com:31001",
+    "membershipServicesURL": "grpcs://000c83f52879408fad38ab85cd9ef058-ca.us.blockchain.ibm.com:30004",
+    "peerURL": "grpcs://000c83f52879408fad38ab85cd9ef058-vp0.us.blockchain.ibm.com:30004",
+    "eventHubURL": "grpcs://000c83f52879408fad38ab85cd9ef058-vp0.us.blockchain.ibm.com:31004",
     "keyValStore": "/Users/ian/.composer-credentials",
     "deployWaitTime": 300,
     "invokeWaitTime": 30,
